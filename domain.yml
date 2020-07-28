@@ -1,0 +1,77 @@
+session_config:
+  session_expiration_time: 0
+  carry_over_slots_to_new_session: true
+intents:
+- my_name:
+    use_entities: []
+- inform
+- greet
+- goodbye
+- cancel
+- book_appointment
+- test
+- time
+- deny
+- affirm
+- thankyou
+- enquire
+- ask_fee
+- receipt
+- check_appointment
+entities:
+- time
+- book_type
+- PERSON
+- time2
+slots:
+  PERSON:
+    type: unfeaturized
+  book_type:
+    type: unfeaturized
+  end_time:
+    type: unfeaturized
+  grain:
+    type: unfeaturized
+  requested_slot:
+    type: unfeaturized
+  start_time:
+    type: unfeaturized
+  time:
+    type: unfeaturized
+  time2:
+    type: unfeaturized
+responses:
+  utter_goodbye:
+  - text: Bye
+  utter_greet:
+  - buttons:
+    - payload: /book_appointment{"book_type":"book"}
+      title: Book an Appointment
+    - payload: /cancel{"book_type":"cancel"}
+      title: Cancel an Appointment
+    - payload: /test{"book_type":"test"}
+      title: Book for Testing
+    text: Hi, how can I help you?
+  utter_name_confirm:
+  - text: Appointment cancelled for {PERSON}.\n
+  utter_name_time_confirm:
+  - text: booking confirmation for {PERSON} on {start_time} at {time2}.
+  utter_ask_time:
+  - text: Mention your booking date
+  utter_ask_PERSON:
+  - text: Please mention your name
+  utter_ask_time2:
+  - text: Please mention your time
+  utter_ask_rephrase:
+  - text: I didn't quite understand that. Can you rephrase?
+actions:
+- utter_goodbye
+- utter_greet
+- utter_ask_rephrase
+- utter_ask_PERSON
+- utter_ask_time
+- utter_name_confirm
+- utter_name_time_confirm
+- utter_ask_time2
+forms:
+- transact_search_form
