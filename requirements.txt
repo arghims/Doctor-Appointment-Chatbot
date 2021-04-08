@@ -10,7 +10,7 @@ cryptography==2.1.4
 cupshelpers==1.0
 defer==1.0.6
 distro-info===0.18ubuntu0.18.04.1
-Django==3.0.7
+Django==3.0.14
 django-tinymce4-lite==1.8.0
 httplib2==0.18.0
 idna==2.6
